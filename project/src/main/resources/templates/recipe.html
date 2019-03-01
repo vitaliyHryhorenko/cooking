@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv = "Content-Type" content = "text/html; charset = UTF-8"/>
+    <meta name = "keywords" content="test, site, website"/>
+    <meta name = "description" content = "Этот сайт является пробным сайтом"/>
+    <link href = "http://localhost:8080/css/style.css" rel = "stylesheet" type = "text/css"/>
+    <link href = "http://localhost:8080/images/Icon_Cooking.png" rel = "shortcut icon" type = "image/x-icon"/>
+    <title> Готуємо смачно </title>
+</head>
+<body>
+<div id = "wrapper">
+    <header>
+        <div class = "wrapper">
+            <div class = "logo">
+                <a href = "http://localhost:8080/index"><img src = "http://localhost:8080/images/Logo1.png"></a>
+            </div>
+            <div class = "slogan">
+                Рецепти за інгредієнтами
+            </div>
+            <div class = "menu">
+                <div class = "search">
+                    <input type = "text" id = "text" placeholder = "Пошук...">
+                    <button class = "icon"><img src = "http://localhost:8080/images/Icon_Search.png"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class = "content">
+        <div class = "wrapper">
+            <div class = "main">
+                <div class = "pane">
+                    <div class = "layout">
+                        <div class = "layout__inner">
+                            <span class = "name name_one">Рецепт</span>
+                            <div class = "block block_recipe">
+                                <div class = "recipe_name" th:text="${recipe.nameRecipe}"></div>
+                                <div class = "recipe_characteristic">
+                                    <span class="characteristic characteristic_time" th:if="${recipe.cookingTime < 60}">Час приготування: <span th:text="${recipe.cookingTime}"></span>хв</span>
+                                    <span class="characteristic characteristic_time" th:if="${recipe.cookingTime >= 60}">Час приготування: <span th:text="${recipe.cookingTime/60}"></span>год <span th:text="${recipe.cookingTime%60}"></span>хв</span>
+                                    <span class="characteristic characteristic_complexity">Складність страви: <span th:text="${recipe.complexityId.nameComplexity}"></span></span>
+                                    <span class="characteristic characteristic_Kcal">Ккал: <span th:text="${recipe.kcal}"></span></span>
+                                </div>
+                                <div class = "picture">
+                                    <img th:src = "${recipe.bidLogo}" class = "picture_img">
+                                </div>
+                                <div class = "recipe_text">
+                                    <div class = "recipe_ingredients">
+                                        <span class = "recipe_text_name">Інгредієнти</span>
+                                        <div class = "ingredients"  th:with="ingredientList = ${recipe.ingredients}">
+                                            <div class = "ingredient_name"  th:each="ingredient : ${ingredientList}">
+                                                <p th:text="${ingredient.nameIngredient}">
+                                                    <div class = "check"></div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!--<div class = "ingredients">-->
+                                            <!--<div class = "ingredient_name" th:with="ingredientList = ${recipe.ingredients}">-->
+                                                <!--<div class = "check"></div>-->
+                                                <!--<p  th:each="ingredient : ${ingredientList}" th:text="${ingredient}"/>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    </div>
+                                    <div class = "recipe_description">
+                                        <span class = "recipe_text_name">Опис страви</span>
+                                        <div class = "description" th:text="${recipe.description}">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class = "recipe_nutrients">
+                                    <span class = "recipe_text_name">Поживні речовини</span>
+                                    <span class = "nutrients proteins">Білки: <span  th:text="${recipe.proteins}"></span></span>
+                                    <span class = "nutrients fats">Жири: <span  th:text="${recipe.fats}"></span></span>
+                                    <span class = "nutrients carbohydrates">Вуглеводи: <span  th:text="${recipe.carbohydrates}"></span></span>
+                                </div>
+                                <div class = "recipe_how to cook">
+                                    <span class = "recipe_text_name">Рецепт приготування</span>
+                                    <div class = "description" th:text="${recipe.textRecipe}">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class = "wrapper">
+            <div class = "footer_content">
+                <div class = "logo_cat">
+                    <img src = "http://localhost:8080/images/Cat.png" class = "cat_img">
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+<script type="text/javascript" src="http://localhost:8080/js/script.js"></script>
+</html>

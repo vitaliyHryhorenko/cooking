@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv = "Content-Type" content = "text/html; charset = UTF-8"/>
+    <meta name = "keywords" content="test, site, website"/>
+    <meta name = "description" content = "Этот сайт является пробным сайтом"/>
+    <link href = "http://localhost:8080/css/style.css" rel = "stylesheet" type = "text/css"/>
+    <link href = "http://localhost:8080/images/Icon_Cooking.png" rel = "shortcut icon" type = "image/x-icon"/>
+    <title> Готуємо смачно </title>
+</head>
+<body>
+<div id = "wrapper">
+    <header>
+        <div class = "wrapper">
+            <div class = "logo">
+                <a href = "admin.html"><img src = "http://localhost:8080/images/Logo1.png"></a>
+            </div>
+            <div class = "slogan">
+                Рецепти за інгредієнтами
+            </div>
+            <div class = "menu">
+                <div class = "search">
+                    <input type = "text" id = "text" placeholder = "Пошук...">
+                    <button class = "icon"><img src = "images/Icon_Search.png"></button>
+                </div>
+                <div class = "button_enter">
+                    <a href = "enter.html"><input type = "button" value = "Вийти з облікового запису"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class = "content">
+        <div class = "wrapper">
+            <div class = "main">
+                <div class = "pane">
+                    <div class = "layout">
+                        <div class = "layout__inner">
+                            <span class = "name name_one">Сторінка адміна</span>
+                            <div class = "block block_admin">
+                                <div class = "result">
+                                    <div>
+                                        Створити нову групу інгредієнтів
+                                    </div>
+                                    <div>
+                                        Змінити групу інгредієнтів
+                                    </div>
+                                    <div>
+                                        <form action="#" th:action="@{/admin/ingredientType/add}" th:object="${com.cooking.model.IngredientType}" method="post">
+                                            <input type="text" th:field="*{nameIngredientType}" />
+                                            <button type="submit" name="removeRow">Remove row</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class = "wrapper">
+            <div class = "footer_content">
+                <div class = "logo_cat">
+                    <img src = "images/Cat.png" class = "cat_img">
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+<script type="text/javascript" src="js/script_admin_2.js"></script>
+</html>

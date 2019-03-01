@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv = "Content-Type" content = "text/html; charset = UTF-8"/>
+    <meta name = "keywords" content="test, site, website"/>
+    <meta name = "description" content = "Этот сайт является пробным сайтом"/>
+    <link href = "http://localhost:8080/css/style.css" rel = "stylesheet" type = "text/css"/>
+    <link href = "http://localhost:8080/images/Icon_Cooking.png" rel = "shortcut icon" type = "image/x-icon"/>
+    <title> Готуємо смачно </title>
+</head>
+<body>
+<div id = "wrapper">
+    <header>
+        <div class = "wrapper">
+            <div class = "logo">
+                <a href = "admin.html"><img src = "http://localhost:8080/images/Logo1.png"></a>
+            </div>
+            <div class = "slogan">
+                Рецепти за інгредієнтами
+            </div>
+            <div class = "menu">
+                <div class = "search">
+                    <input type = "text" id = "text" placeholder = "Пошук...">
+                    <button class = "icon"><img src = "images/Icon_Search.png"></button>
+                </div>
+                <div class = "button_enter">
+                    <a href = "enter.html"><input type = "button" value = "Вийти з облікового запису"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class = "content">
+        <div class = "wrapper">
+            <div class = "main">
+                <div class = "pane">
+                    <div class = "layout">
+                        <div class = "layout__inner">
+                            <span class = "name name_one">Сторінка адміна</span>
+                            <div class = "block block_admin" style = "border-bottom-right-radius: 0px;">
+                                <div class = "parameters">
+                                    <!--<form action="add_recipe" method="post">-->
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Назва</div>
+                                        <div class = "value_parametr"><textarea class = "field" rows="1"></textarea></div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Опис</div>
+                                        <div class = "value_parametr"><textarea class = "field" rows="10"></textarea></div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Час приготування</div>
+                                        <div class = "value_parametr"><textarea class = "field field_small_30" rows="1"></textarea></div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Складність</div>
+                                        <div class = "value_parametr">
+                                            <div class = "checkboxes checkboxes_admin">
+                                                <div class = "dish_complexity_admin dish_admin">
+
+                                                </div>
+                                                <div class = "dish_complexity_admin_select dish_admin_select">
+                                                    <ul>
+                                                        <li>Легко</li>
+                                                        <li>Середнє</li>
+                                                        <li>Важко</li>
+                                                        <li>Шеф-кухар</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Ккалорій на 100гр.</div>
+                                        <div class = "value_parametr"><textarea class = "field field_small_30" rows="1"></textarea></div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Тип страви</div>
+                                        <div class = "value_parametr">
+                                            <div class = "checkboxes checkboxes_admin">
+                                                <div class = "dish_type_admin dish_admin">
+
+                                                </div>
+                                                <div class = "dish_type_select_admin dish_admin_select">
+                                                    <ul>
+                                                        <li>Перша страва</li>
+                                                        <li>Друга страва</li>
+                                                        <li>Десерти</li>
+                                                        <li>Напої</li>
+                                                        <li>Соуси</li>
+                                                        <li>Закуски</li>
+                                                        <li>Консервації</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Рецепт</div>
+                                        <div class = "value_parametr"><textarea class = "field" rows="10"></textarea></div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Зображення</div>
+                                        <div class = "value_parametr"><input type="file" class="hide inputfile" id="upload" data-multiple-caption="{count1} files selected" multiple /><label for="upload"><span>Завантажити файл</span></label></div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Поживні речовини</div>
+                                        <div class = "value_parametr">
+                                            <span class = "nutrients_span">Жири</span><textarea class = "field field_small_10" rows="1"></textarea>
+                                            <span class = "nutrients_span">Білки</span><textarea class = "field field_small_10" rows="1"></textarea>
+                                            <span class = "nutrients_span">Вуглеводи</span><textarea class = "field field_small_10" rows="1"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class = "parametr">
+                                        <div class = "name_parametr">Інгредієнти</div>
+                                        <div class = "block_name_parametr" style = "display: flex; flex-direction: column;">
+                                            <div class = "products_type">
+                                                <div class = "product_type_item" data-group = "meat">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Meat.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">М'ясо</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "seafood">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Seafood.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Морепродукти</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "vegetable">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Vegetable.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Овочі</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "dairy_products">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Dairy_products.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Молочні продукти</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "bread">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Bread.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Хліб та інше</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "macaroni">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Macaroni.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Макарони та крупи</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "flour">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Flour.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Борошно та спеції</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "canned_food">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Сanned_food.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Консерви</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "mushroom">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Mushroom.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Гриби</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "fruit">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Fruit.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Фрукти</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "drinks">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Drinks.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Напої</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "green">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Green.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Зелень</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "sauce">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Sauce.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Соуси</label>
+                                                </div>
+                                                <div class = "product_type_item" data-group = "other">
+                                                    <div class = "img_div"><img src = "images/Search_by_ingredients/Other.png" width="50" height="50" class = "img"></div>
+                                                    <label class = "label">Інше</label>
+                                                </div>
+                                            </div>
+                                            <div class = "products">
+                                                <figure class = "ingredient" data-group = "meat" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Баранина</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Бекон</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Індичка (грудка)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Індичка (крильця)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Індичка (ніжки)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Індичка (повністю)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Індичка (стегенце)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Індичка (фарш)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Курка (грудка)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Курка (крильця)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Курка (ніжки)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Курка (повністю)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Курка (стегенце)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Курка (фарш)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Курка (філе)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сало</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Свинина</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Свинина (вирізка)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Свинина (серце)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Свинина (фарш)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Яловичина (печінка)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Яловичина (фарш)</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "seafood" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Анчоуси</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ікра мойви</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ікра осетрова</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ікра чорна</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Камбала свіжа</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Крабове м'ясо</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Креветки свіжі</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лосось (філе)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Оселедець</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "vegetable" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Баклажан</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Брокколі</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Буряк</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Імбир (корінь)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кабачок</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Капуста</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Картопля</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кукурудза</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Морква</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Огірок</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Перець (солодкий)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Перець (чілі)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Помідор</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Редис</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Цибуля</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Часник</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "dairy_products" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вершки</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Йогурт</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кефір</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Масло вершкове</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Масло шоколадне</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Молоко</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Молоко знежирене</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Молоко козине</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Морозиво</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сир кисломолочний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сир Моцарелла</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сир Пармезан</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сир плавлений</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сметана</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "bread" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Багет</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Батон нарізний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Булочки для гамбургерів</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лаваш вірменський</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лаваш кавказький</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сухарики з білого хліба</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сухарики житні</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Хліб білий (пшеничний)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Хліб кукурудзяний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Хліб сірий (житньо-пшеничний)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Хліб чорний (бородинський)</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "macaroni" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вермішель</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Макарони</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вівсяні пластівці</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Гречка</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кукурудзяна крупа</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Мак</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Пшенична крупа</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Рис</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Рожки</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Спагетті</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "flour" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Борошно кукурудзяне</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Борошно мигдальне</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Борошно пшеничне</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ванілін</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Дріжді</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Желатин</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Какао-порошок</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кокосова стружка</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кориця</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Крохмаль картопляний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Крохмаль кукурудзяний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кунжут</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сіль</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Сода харчова</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Цукор-пісок</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Цукор-рафінад</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Цукор тростинний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Цукрова пудра</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "canned_food" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ананас (консерва)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вареня вишневе</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вареня інжирне</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Горох заморожений</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Горох (консерва)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Джем абрикосовий</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Джем апельсиновий</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Джем чорничний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Квасоля біла (консерва)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Квасоля в томатному соусі</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кукурудза (кончерва)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Маслини</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Мед</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Мідії консервовані</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Молоко горіхове (мигдальне)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Молоко кокосове</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Огірки корнішони мариновані</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Оливки</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Повидло абрикосове</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Повидло сливове</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Свиняча тушонка</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Томат маринований</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "mushroom" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Білий гриб</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Маслюк звичайний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Опеньок осінній</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Печериці заморожені</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Печериці свіжі</label>
+                                                    </div>											<div>
+                                                    <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                    <label class = "ingredient_check_mark_label">Підберезовик</label>
+                                                </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "fruit" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Авокадо</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ананас (консерва)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Апельсин</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Банан</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Виноград</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Гранат</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Грейпфрут</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Груша</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Клубника</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Клюква</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лайм</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лимон</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Малина</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Манго</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Мандарин</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Персик</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Помело</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Чорниця</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Яблуко зелене</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Яблуко червоне</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "drinks" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ананасовий сік</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Апельсиновий сік</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вино біле напівсолодке</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вино біле сухе</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вино червоне сухе</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Гранатовий сік</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лаймовий сік</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лимонний сік</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Пиво світле</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Пиво темне</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Ром</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Фруктовий сік</label>
+                                                    </div>												<div>
+                                                    <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                    <label class = "ingredient_check_mark_label">Яблучний сік</label>
+                                                </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Яблучний сидр</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "green" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Базилік свіжий</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Горох зелений</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Квасоля зелена стручкова</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кріп</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">М'ята свіжа</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Петрушка</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Соя (паростки)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Цибуля зелена</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Шпинат</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "sauce" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Аджика</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Васабі</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Гірчиця</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кетчуп</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Кокосовий соус</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Майонез</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Оцет</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Соус рибний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Соус соєвий</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Соус Табаско</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Соус чілі</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Томатна паста</label>
+                                                    </div>
+                                                </figure>
+                                                <figure class = "ingredient" data-group = "other" style = "display: none;">
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Вода</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Квас хлібний</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Лід</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Маргарин</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Масло кокосове</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Олія</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Соя (боби)</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Чіпси</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Шоколад</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Шоколад білий</label>
+                                                    </div>
+                                                    <div>
+                                                        <div class = "ingredient_check_mark"><img src = "images/check_mark.png" class = "ingredient_check_mark_img"></div>
+                                                        <label class = "ingredient_check_mark_label">Яйце куряче</label>
+                                                    </div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "block_find_a_recipe" style = "position: static;">
+                                <div class = "find_a_recipe">
+                                    <a href = "admin_change.html"><span class = "button_find_a_recipe plus_icon">Додати страву</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class = "wrapper">
+            <div class = "footer_content">
+                <div class = "logo_cat">
+                    <img src = "images/Cat.png" class = "cat_img">
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+<script type="text/javascript" src="js/script_new_recipe.js"></script>
+</html>
